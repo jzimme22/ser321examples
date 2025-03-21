@@ -23,7 +23,10 @@ public class Multiply {
         }
         System.out.println(argX + " * " + argY + " = " + argX * argY);
       } else {
-          System.out.println("Exactly 2 arguments should be provided.\n gradle run --args='1 2'");
+        int argX = 1;
+        int argY = 3;
+        
+	System.out.println(argX + " * " + argY + " = " + argX * argY);
       }
     }
 }

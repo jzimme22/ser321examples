@@ -38,6 +38,28 @@ public class Fraction {
    }
 
    public static void main (String args[]) {
+//---------------------remove if it doesnt work---------------------------//
+if (args.length == 2) {
+	int argX = 0;
+	int argY = 0;
+
+        try {
+          argX = Integer.parseInt(args[0]);
+          argY = Integer.parseInt(args[1]);
+		  
+	  Fraction frac = new Fraction();		  
+	  frac.setNumerator(argX);
+          frac.setDenominator(argY);
+		  System.out.print("The fraction is: ");
+          frac.print();
+          System.out.println("");		  
+		  
+        } catch (Exception e) {
+			System.out.println("Arguments: " + args[0] + ", " + args[1] + " must be integers.");
+			System.exit(2);
+        } 
+} else {
+
       try {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
@@ -52,9 +74,11 @@ public class Fraction {
          frac.print();
          System.out.println("");
 
-      }catch(Exception e) {
+      } catch(Exception e) {
          e.printStackTrace();
       }
-   }
+   }//end else block
+
+}//end main 
 }
 
