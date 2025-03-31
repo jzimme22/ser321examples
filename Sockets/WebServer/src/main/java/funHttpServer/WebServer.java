@@ -204,7 +204,8 @@ class WebServer {
           // extract required fields from parameters
           Integer num1 = Integer.parseInt(query_pairs.get("num1"));
           Integer num2 = Integer.parseInt(query_pairs.get("num2"));
-
+          //Assign2 exception handling
+        if ((num1 instanceof Integer) && (num2 instanceof Integer)) {
           // do math
           Integer result = num1 * num2;
 
@@ -213,18 +214,18 @@ class WebServer {
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
           builder.append("Result is: " + result);
-
+        }
           // TODO: Include error handling here with a correct error code and
           // a response that makes sense
-		  if (!(num1 instanceof Integer) || !(num2 instanceof Integer)) {
+		  else {
 			  num1 = 0;
 			  num2 = 0;
-			  result = num1 * num2;
+			  Integer result = num1 * num2;
 			  builder.append("HTTP/1.1 400 Bad Request\n");
 			  builder.append("Content-Type: text/html; charset=utf-8\n");
               builder.append("\n");
-              builder.append("Result is: " + result);
-			  
+              builder.append("One or more values are not integers.  Default result is: " + result);
+
 		  }
 
         } else if (request.contains("github?")) {
